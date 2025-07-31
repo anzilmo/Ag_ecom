@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+     
+  {% comment %} slider  {% endcomment %}
+  <div class="container-fluid px-0">
+        <div class="carousel-container">
+            <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+                </div>
+                
+                <!-- Slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{%static 'images/logos/byd sell.jpg' %}" class="d-block w-100 carousel-img" alt="Luxury Cars">
+                        <div class="carousel-caption">
+                            <h3>Premium Selection</h3>
+                            <p>Discover our exclusive collection of luxury vehicles from world-renowned brands. Exceptional quality and performance.</p>
+                            <a href="#" class="carousel-btn">Explore Collection</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/logos/Gvagan.jpg' %}">
+                        <div class="carousel-caption">
+                            <h3>Unmatched Comfort</h3>
+                            <p>Experience the pinnacle of automotive luxury with our premium interiors and cutting-edge technology.</p>
+                            <a href="#" class="carousel-btn">View Interior Options</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/Cars/s-class.avif' %}">
+                        <div class="carousel-caption">
+                            <h3>Performance Redefined</h3>
+                            <p>Feel the power of our high-performance models engineered for speed, agility, and driving excitement.</p>
+                            <a href="#" class="carousel-btn">Experience Performance</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    {% comment %} Brand Loge Selling  {% endcomment %}
+  <div class="section-title">  
+    <h2>Brands</h2>
+    <p>Our Top Quality Brands<p>
+  </div>  
+    <div class="brand-container">
+        {% for brand in logos %}
+            <div class="brand-item">
+                {% if brand.logo %}
+                    <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" width="100" height="100">
+                {% else %}
+                    <p>No logo</p>
+                {% endif %}
+                <p>{{ brand.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+   
+
+
+    {% comment %} why choesss  {% endcomment %}
+    <div class="decor-circle circle-1"></div>
+    <div class="decor-circle circle-2"></div>
+    
+    <div class="container my-5">
+        <div class="section-title">
+            <h2>Why Choose AG.Cars</h2>
+            <p >Experience the premium difference with our exceptional services tailored for car enthusiasts and luxury seekers.</p>
+        </div>
+        
+        <div class="row">
+            <!-- Fast Booking -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="feature-card floating">
+                    <div class="card-body">
+                        <div class="icon-wrapper pulse">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h5 class="card-title">Fast Booking</h5>
+                        <p class="card-text">Reserve your dream car in minutes with our streamlined digital process. No waiting, no paperwork hassles.</p>
+                        <a href="#" class="feature-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Best Prices -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="feature-card floating" style="animation-delay: 0.2s">
+                    <div class="card-body">
+                        <div class="icon-wrapper pulse" style="animation-delay: 0.4s">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h5 class="card-title">Best Prices</h5>
+                        <p class="card-text">We offer the most competitive pricing in the luxury car market with guaranteed value for money.</p>
+                        <a href="#" class="feature-btn">View Offers <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Verified Cars -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="feature-card floating" style="animation-delay: 0.4s">
+                    <div class="card-body">
+                        <div class="icon-wrapper pulse" style="animation-delay: 0.8s">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="card-title">Verified Cars</h5>
+                        <p class="card-text">Every vehicle undergoes a 200-point inspection by our master technicians for guaranteed quality.</p>
+                        <a href="#" class="feature-btn">See Process <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 24/7 Support -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="feature-card floating" style="animation-delay: 0.6s">
+                    <div class="card-body">
+                        <div class="icon-wrapper pulse" style="animation-delay: 1.2s">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="card-title">24/7 Support</h5>
+                        <p class="card-text">Our premium concierge service is available around the clock for all your automotive needs.</p>
+                        <a href="#" class="feature-btn">Contact Us <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+ {% comment %} supar   cars {% endcomment %}
+ <style>
+ h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+    .car-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 35px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .car-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      transition: 0.4s;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(202, 5, 5, 0.08);
+      padding: 0;
+      position: relative;
+    }
+    .car-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .limited-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: orange;
+      color: white;
+      padding: 5px 10px;
+      font-weight: bold;
+      border-radius: 15px;
+      font-size: 12px;
+    }
+    .car-content {
+      padding: 20px;
+    }
+    .car-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .highlight {
+      color: #fddb3a;
+      font-weight: bold;
+    }
+    .car-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .spec {
+      background-color: rgba(255,255,255,0.08);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .spec i {
+      color: tomato;
+    }
+    .description {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .price-tag {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #1aff9a;
+      background: rgba(0, 255, 170, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+</style>
+<h1>Available Super Cars</h1>
+
+<div class="car-container">
+  {% for car in cars %}
+  <div class="car-card">
+    
+    {% if car.image %}
+    <img src="{{ car.image.url }}" alt="{{ car.car_name }}" class="car-img">
+    {% endif %}
+    
+    <span class="limited-tag">Limited Edition</span>
+
+    <div class="car-content">
+      <div class="car-title">
+        {{ car.brand_name }} <span class="highlight">{{ car.car_name }}</span>
+      </div>
+
+      <div class="car-specs">
+        <div class="spec"><i class="fa fa-calendar"></i> {{ car.model_year }}</div>
+        <div class="spec"><i class="fa fa-road"></i> {{ car.running_kilometers }} km</div>
+        <div class="spec"><i class="fa fa-gas-pump"></i> {{ car.fuel_type }}</div>
+        <div class="spec"><i class="fa fa-cogs"></i> {{ car.transmission }}</div>
+        <div class="spec"><i class="fa fa-car"></i> {{ car.vehicle_type }}</div>
+        <div class="spec"><i class="fa fa-bolt"></i> {{ car.description|truncatechars:15 }}</div>
+      </div>
+
+      <div class="price-tag">${{ car.price }}</div>
+
+      <!-- Button from Uiverse.io -->
+      <button class="btn cube cube-hover" type="button">
+        <div class="bg-top"><div class="bg-inner"></div></div>
+        <div class="bg-right"><div class="bg-inner"></div></div>
+        <div class="bg"><div class="bg-inner"></div></div>
+        <div class="text">More Details</div>
+      </button>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+           
+
+
+{% endblock %}
