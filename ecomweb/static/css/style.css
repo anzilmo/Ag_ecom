@@ -2,9 +2,9 @@
 :root {
             --primary: #0d6efd;
             --dark: #212529;
-            --light: #f8f9fa;
+            --light: hsl(210, 17%, 98%);
             --accent: #dc3545;
-            --gold: #ffc107;
+            --gold: #ffffff;
         }
         
         body {
@@ -447,7 +447,7 @@
         
         .feature-card:hover .icon-wrapper i {
             color: #fff;
-            text-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+            text-shadow: 0 0 15px rgba(184, 0, 52, 0.7);
         }
         
         .card-title {
@@ -744,3 +744,51 @@ h2 {
             color: #999;
             font-style: italic;
         }
+
+        /* new cars  */
+        .card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: #b10020;
+    border: none;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #870017;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.25rem;
+    }
+    .card-body {
+        padding: 25px 15px;
+    }
+}

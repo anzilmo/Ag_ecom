@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.home,name='home'),
     path('cart/', views.cart_view, name='cart'),
+    path('new-cars/',views.newcars,name='new-cars'),
+    path('used-car/',views.usedcar,name='used-car'),
 ]
 
 

@@ -111,3 +111,46 @@ document.addEventListener('DOMContentLoaded', function() {
         card.dataset.category = categories[index % categories.length];
     });
 });
+
+// used cars 
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      card.style.border = "1px solid #ddd";
+      card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+      card.style.borderRadius = "10px";
+      card.style.transition = "transform 0.3s ease";
+
+      // Add hover effect
+      card.addEventListener('mouseover', () => {
+        card.style.transform = "scale(1.03)";
+        card.style.boxShadow = "0 6px 16px rgba(0,0,0,0.15)";
+      });
+
+      card.addEventListener('mouseout', () => {
+        card.style.transform = "scale(1)";
+        card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+      });
+    });
+
+    const buttons = document.querySelectorAll('.btn-outline-danger');
+    buttons.forEach(btn => {
+      btn.style.backgroundColor = "#fff";
+      btn.style.color = "#dc3545";
+      btn.style.border = "1px solid #dc3545";
+      btn.style.transition = "all 0.3s ease";
+
+      btn.addEventListener('mouseover', () => {
+        btn.style.backgroundColor = "#dc3545";
+        btn.style.color = "#fff";
+      });
+
+      btn.addEventListener('mouseout', () => {
+        btn.style.backgroundColor = "#fff";
+        btn.style.color = "#dc3545";
+      });
+    });
+  });
+

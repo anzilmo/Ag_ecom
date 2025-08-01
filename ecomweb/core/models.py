@@ -3,6 +3,7 @@ from django.db import models
 class SuperCar(models.Model):
     CAR_TYPE_CHOICES = [
         ('SUV', 'SUV'),
+        ('luxurySUVs','luxurySUVs'),
         ('Sedan', 'Sedan'),
         ('Coupe', 'Coupe'),
         ('Hatchback', 'Hatchback'),

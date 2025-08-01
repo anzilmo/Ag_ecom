@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}New Cars{% endblock %}
+<link rel="stylesheet" href="{% static 'css/newcar.css' %}" />
+
+{% block content %}
+<!-- Navbar or Header (optional) -->
+<header class="bg-dark text-white p-3">
+    <div class="container">
+      <h1 class="h3" style="text-align: center;">New Cars</h1>
+    </div>
+</header>
+
+  <!-- Car Listings -->
+ <style> 
+
+  .card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: #b10020;
+    border: none;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #870017;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.25rem;
+    }
+    .card-body {
+        padding: 25px 15px;
+    }
+}
+</style>
+<div class="container mt-4">
+  <div class="row">
+    {% for car in new_cars %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          {% if car.image %}
+            <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
+          {% else %}
+            <img src="{% static 'images/no-car.jpg' %}" class="card-img-top" alt="No image available">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ car.brand_name }} - {{ car.car_name }}</h5>
+            <p class="card-text">
+              <strong>Price:</strong> ₹{{ car.price }} <br>
+              <strong>Year:</strong> {{ car.model_year }} <br>
+              <strong>Kilometers:</strong> {{ car.kilometers }} km
+            </p>
+            <button class="btn-primary">More Details</button>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <p class="text-center text-muted">No new cars available.</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content%}
